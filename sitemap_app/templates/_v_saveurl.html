@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{% block title %}Get All Url Address In that Sitemap File Address {% endblock %}</h3>
+    <form action="/saveurl" method="post">
+        URL : <input name="input_url" type="url">
+        <input name="input_button" type="submit" value="Create Sitemap">
+    <form>
+
+<div style="width: 50%; margin: auto">
+        {% for comment in comments %}
+		{% if loop.index % 2 == 0 %}
+                	{% set bg_color = '#e6f9ff' %}
+            	{% else %}
+                	{% set bg_color = '#eee' %}
+            	{% endif %}
+        <div style="padding: 10px; background-color: {{ bg_color }}; margin: 20px">
+        <p>#{{ loop.index }}</p>
+ <p style="font-size: 24px">{{ comment }}</p>
+        </div>
+        {% endfor %}
+        <hr>
+        <div>
+            <p>{{ comments | join(" | ") }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{% block title %}Get All Url Address In That Sitemap File Address {% endblock %}</h3>
+    <form action="/saveurl" method="post">
+        Sitemap XML File URL Address : <input name="input_url" type="url">
+        <input name="input_button" type="submit" value="Fetch All URL in Sitemap File">
+    <form>
+
+<div>
+<table>
+  <tr>
+      <td><a href="{{download_url}}">{{download_text}}</a></td>
+  </tr>
+     <tr>
+         <td>All URL List in Sitemap Files</td>
+     </tr>
+{% for url in variable_l_all_urls %}
+<tr><td><p><a href='{{ url }}'>{{ url }}</a></p></td></tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
